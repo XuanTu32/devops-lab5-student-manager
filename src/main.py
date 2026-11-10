@@ -4,6 +4,8 @@ Module: Main Application
 """
 from student import Student
 
+VERSION = "1.0.0"
+
 
 def add_student(students: list, student_id: str, name: str, age: int, grade: str) -> list:
     """Thêm sinh viên mới vào danh sách.
@@ -60,7 +62,7 @@ def search_student(students: list, keyword: str) -> list:
 def main():
     """Hàm chính của ứng dụng."""
     print("=" * 50)
-    print("STUDENT MANAGER — DevOps Lab 5")
+    print(f"STUDENT MANAGER v{VERSION} — DevOps Lab 5")
     print("=" * 50)
 
     students = [
