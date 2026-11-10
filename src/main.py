@@ -59,6 +59,17 @@ def search_student(students: list, keyword: str) -> list:
     return results
 
 
+def delete_student(students: list, student_id: str) -> bool:
+    """Xóa sinh viên theo mã. Trả về True nếu xóa được."""
+    for s in students:
+        if s.student_id == student_id:
+            students.remove(s)
+            print(f"🗑️ Đã xóa sinh viên: {s}")
+            return True
+    print(f"❌ Không tìm thấy sinh viên có mã {student_id}")
+    return False
+
+
 def main():
     """Hàm chính của ứng dụng."""
     print("=" * 50)
@@ -82,6 +93,10 @@ def main():
     # Tìm kiếm sinh viên
     print("\n--- Tìm kiếm ---")
     search_student(students, "Van")
+
+    # Xóa sinh viên
+    print("\n--- Xóa ---")
+    delete_student(students, "SV003")
 
 
 if __name__ == "__main__":
