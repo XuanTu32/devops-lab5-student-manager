@@ -70,6 +70,22 @@ def delete_student(students: list, student_id: str) -> bool:
     return False
 
 
+def update_student(students: list, student_id: str, name=None, age=None, grade=None) -> bool:
+    """Cập nhật thông tin sinh viên. Chỉ sửa trường nào được truyền vào."""
+    for s in students:
+        if s.student_id == student_id:
+            if name is not None:
+                s.name = name
+            if age is not None:
+                s.age = age
+            if grade is not None:
+                s.grade = grade
+            print(f"✏️ Đã cập nhật: {s}")
+            return True
+    print(f"❌ Không tìm thấy sinh viên có mã {student_id}")
+    return False
+
+
 def main():
     """Hàm chính của ứng dụng."""
     print("=" * 50)
@@ -97,6 +113,10 @@ def main():
     # Xóa sinh viên
     print("\n--- Xóa ---")
     delete_student(students, "SV003")
+
+    # Cập nhật sinh viên
+    print("\n--- Cập nhật ---")
+    update_student(students, "SV002", age=22)
 
 
 if __name__ == "__main__":
